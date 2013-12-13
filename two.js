@@ -1,3 +1,5 @@
+var _ = require('underscore');
+
 var fib = function(num){
   var start = 1;
   var cache = {};
