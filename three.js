@@ -1,38 +1,34 @@
 var _ = require('underscore');
 
+var isPrime = function(num){
+  return factorize(num).length === 0;
+}
 var factorize = function(num){
+  factors = [];
+  for(var i = 2; i<Math.sqrt(num); i++){
+    if(num %i === 0){
+      factors.push(i);
+      factors.push(num/i);
+    }
+  }
 
-    return _.filter(primesLessThan(num), function(b){return num % b === 0})
+  return factors;
 };
 
-var primesLessThan = function(num){
-    return sieve(num);
-};
-
-var sieve = function(num){
-    var primes = [];
-    var a = [];
-    for(var i = 2; i<Math.sqrt(num); i++)
-    {
-        a.push(i);
+var getLargestPrime = function(num) {
+  var factors = factorize(num);
+  var currentPrime = 0;
+  for(var i = 0; i < factors.length; i++){
+    if(isPrime(factors[i])){
+      if(factors[i] > currentPrime){
+        currentPrime = factors[i];
+      }
     }
+  }
 
-    var done = false;
-    var p = 2;
-    var x = 2;
-    while(!done){
-        primes.push(p);
-        a = _.filter(a, function(b){ return b % x != 0;})
-        p = a[0];
-        if(a.length === 0){
-            done = true;
-        }
-        x = p;
-    }
-
-    return primes;
+  return currentPrime;
 }
 
-
 module.exports.factorize = factorize;
-module.exports.primesLessThan = primesLessThan;
+module.exports.isPrime = isPrime;
+module.exports.getLargestPrime = getLargestPrime;
