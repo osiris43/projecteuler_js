@@ -12,7 +12,7 @@ var primesLessThan = function(num){
 var sieve = function(num){
     var primes = [];
     var a = [];
-    for(var i = 2; i<num; i++)
+    for(var i = 2; i<Math.sqrt(num); i++)
     {
         a.push(i);
     }
