@@ -13,4 +13,8 @@ describe('problem four', function(){
   it("should say 1221 is a palindrome", function(){
     four.isPalindrome(1221).should.equal(true);
   })
+
+  it("logs factors of palindromes", function(){
+    four.solution();
+  })
 });
