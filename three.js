@@ -2,7 +2,7 @@ var _ = require('underscore');
 var lib = require('./lib');
 
 var isPrime = function(num){
-  return lib.factorize(num).length === 0;
+  return lib.factorize(num).length === 2;
 }
 
 var getLargestPrime = function(num) {
