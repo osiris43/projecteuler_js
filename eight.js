@@ -9,8 +9,6 @@ var calculate = function(num){
 		if(temp > largestProduct){
 			largestProduct = temp;
 		}
-		console.log(largestProduct);
-		console.log(i);
 	}
 
 	return largestProduct;
